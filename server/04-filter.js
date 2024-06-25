@@ -23,12 +23,20 @@ const orders = [
         delivered: true
     },
     {
-        customerName: 'Osvaldo',
+        customerName: 'Raul',
         total: 234,
         delivered: false
     },
 ]
 
-const deliveredOrders = orders.filter(item => item.delivered)
+const deliveredOrders = orders.filter(item => item.delivered && item.total >= 100)
 
 console.log(deliveredOrders);
+
+const search = (query) => {
+    return orders.filter(item => {
+        return item.customerName.includes(query)
+    })
+}
+
+console.log(search('Raul'));
